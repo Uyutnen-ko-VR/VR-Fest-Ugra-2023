@@ -10,7 +10,8 @@ public class PlayerTractorControl : MonoBehaviour
         if (other.CompareTag("TractorTrigger"))
         {
             print("Smth");
-            gameObject.layer = LayerMask.NameToLayer("Tractor");
+            // gameObject.layer = LayerMask.NameToLayer("Tractor");
+            gameObject.GetComponent<Collider>().enabled = false;
             transform.SetParent(other.transform.parent, true);
         }
     }
@@ -20,6 +21,7 @@ public class PlayerTractorControl : MonoBehaviour
         if (other.CompareTag("TractorTrigger"))
         {
             gameObject.layer = LayerMask.NameToLayer("Default");
+            gameObject.GetComponent<Collider>().enabled = true;
             transform.SetParent(other.transform.parent.parent, true);
         }
     }
