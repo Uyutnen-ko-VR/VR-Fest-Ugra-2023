@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.collab-proxy": {
-      "version": "1.14.18",
+      "version": "2.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
@@ -15,16 +15,16 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "1.2.1",
+      "version": "3.0.18",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.test-framework": "1.1.1"
+        "com.unity.ext.nunit": "1.0.6"
       },
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.visualstudio": {
-      "version": "2.0.15",
+      "version": "2.0.17",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -78,7 +78,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.timeline": {
-      "version": "1.2.18",
+      "version": "1.6.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -123,7 +123,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.legacyinputhelpers": {
-      "version": "2.1.9",
+      "version": "2.1.8",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -132,26 +132,18 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.management": {
-      "version": "4.3.3",
+    "com.unity.xr.oculus.standalone": {
+      "version": "2.38.4",
       "depth": 0,
       "source": "registry",
-      "dependencies": {
-        "com.unity.modules.subsystems": "1.0.0",
-        "com.unity.modules.vr": "1.0.0",
-        "com.unity.modules.xr": "1.0.0",
-        "com.unity.xr.legacyinputhelpers": "2.1.7"
-      },
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.oculus": {
-      "version": "1.12.1",
+    "com.unity.xr.openvr.standalone": {
+      "version": "2.0.5",
       "depth": 0,
       "source": "registry",
-      "dependencies": {
-        "com.unity.xr.management": "4.2.0",
-        "com.unity.ugui": "1.0.0"
-      },
+      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.modules.ai": {
