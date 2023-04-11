@@ -5,7 +5,7 @@ using UnityEngine;
 public class buttonScript : MonoBehaviour
 {
     public bool resetValueWhenReleased = true, value = false;
-    public int interactions = 0;
+    private int interactions = 0;
     public Material onMat, offMat;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
@@ -26,8 +26,6 @@ public class buttonScript : MonoBehaviour
                     value = false;
                 }
             }
-            else
-                print("Already interacted");
         }
     }
     private void OnTriggerExit(Collider other)
@@ -42,9 +40,7 @@ public class buttonScript : MonoBehaviour
                     this.GetComponent<MeshRenderer>().material = offMat;
                     value = false;
                 }
-            }
-            else
-                print("Ii");
+            };
         }
     }
 }

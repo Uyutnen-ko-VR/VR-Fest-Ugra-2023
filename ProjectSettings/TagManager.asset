@@ -6,6 +6,7 @@ TagManager:
   tags:
   - gruz
   - Interactor
+  - mop
   layers:
   - Default
   - TransparentFX
