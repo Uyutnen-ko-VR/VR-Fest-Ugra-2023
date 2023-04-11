@@ -28,6 +28,8 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
 
+    public getQuaternionScript steering, drive;
+
     private void FixedUpdate()
     {
         GetInput();
@@ -39,9 +41,23 @@ public class CarController : MonoBehaviour
 
     private void GetInput()
     {
-        horizontalInput = Input.GetAxis(HORIZONTAL);
-        verticalInput = Input.GetAxis(VERTICAL);
-        isBreaking = Input.GetKey(KeyCode.Space);
+        // horizontalInput = Input.GetAxis(HORIZONTAL);
+        // verticalInput = Input.GetAxis(VERTICAL);
+        // isBreaking = Input.GetKey(KeyCode.Space);
+
+
+        horizontalInput = -ConvertToDiapason(steering.output.x, -0.7f, 0.7f, -1, 1);
+        verticalInput = ConvertToDiapason(drive.output.x, -0.7f, 0.7f, -1, 1);
+        
+    }
+
+    private float ConvertToDiapason(float old, float oldMin, float oldMax, float newMin, float newMax)
+    {
+        float oldRange = oldMax - oldMin;
+        float newRange = newMax - newMin;
+        float converted = ((old - oldMin) * newRange / oldRange) + newMin;
+
+        return converted;
     }
 
     private void HandleMotor()
