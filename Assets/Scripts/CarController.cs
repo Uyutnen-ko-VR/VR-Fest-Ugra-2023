@@ -29,6 +29,14 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearRightWheelTransform;
 
     public getQuaternionScript steering, drive;
+    
+    public enum inputEnum
+    {
+        keyboard,
+        vr
+    }
+
+    public inputEnum input;
 
 
     private void FixedUpdate()
@@ -42,13 +50,26 @@ public class CarController : MonoBehaviour
 
     private void GetInput()
     {
-        //horizontalInput = Input.GetAxis(HORIZONTAL);
-        //verticalInput = Input.GetAxis(VERTICAL);
-        //isBreaking = Input.GetKey(KeyCode.Space);
+        horizontalInput = Input.GetAxis(HORIZONTAL);
+        verticalInput = Input.GetAxis(VERTICAL);
+        isBreaking = Input.GetKey(KeyCode.Space);
+
+        switch (input)
+        {
+            case inputEnum.keyboard:
+                horizontalInput = Input.GetAxis(HORIZONTAL);
+                verticalInput = Input.GetAxis(VERTICAL);
+                isBreaking = Input.GetKey(KeyCode.Space);
+                break;
+            case inputEnum.vr:
+                horizontalInput = -ConvertToDiapason(steering.output.x, -0.7f, 0.7f, -1, 1);
+                verticalInput = ConvertToDiapason(drive.output.x, -0.7f, 0.7f, -1, 1);
+                break;
+        }
 
 
-        horizontalInput = -ConvertToDiapason(steering.output.x, -0.7f, 0.7f, -1, 1);
-        verticalInput = ConvertToDiapason(drive.output.x, -0.7f, 0.7f, -1, 1);
+        // horizontalInput = -ConvertToDiapason(steering.output.x, -0.7f, 0.7f, -1, 1);
+        // verticalInput = ConvertToDiapason(drive.output.x, -0.7f, 0.7f, -1, 1);
 
     }
 

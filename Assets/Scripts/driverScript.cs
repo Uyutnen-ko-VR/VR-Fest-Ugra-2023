@@ -14,8 +14,8 @@ public class driverScript : MonoBehaviour
         {
             player = other.gameObject;
             entered = true;
-            player.GetComponent<moveScript>().canMove = false;
             player.GetComponent<Collider>().enabled = false;
+            player.GetComponent<moveScript>().canMove = false;
             player.GetComponent<Rigidbody>().isKinematic = true;
             player.transform.SetParent(parent);
             player.transform.position = playerHandler.position;
