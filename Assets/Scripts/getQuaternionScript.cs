@@ -8,6 +8,6 @@ public class getQuaternionScript : MonoBehaviour
     public Transform doll;
     void Update()
     {
-        output = doll.rotation;
+        output = doll.localRotation;
     }
 }
