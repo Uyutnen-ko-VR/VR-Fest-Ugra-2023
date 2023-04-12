@@ -5,6 +5,12 @@ using UnityEngine;
 public class setPositionScript : MonoBehaviour
 {
     public Transform doll, target;
+    private void Start()
+    {
+        if (doll == null)
+            doll = this.transform;
+    }
+
     void Update()
     {
         doll.position = target.position;
