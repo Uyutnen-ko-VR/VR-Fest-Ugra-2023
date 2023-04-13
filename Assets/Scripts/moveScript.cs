@@ -9,11 +9,7 @@ public class moveScript : MonoBehaviour
     public bool canMove = true;
     bool running = false;
     public float speed = 1f, rotSpeed = 30f, fastSpeed = 3f;
-    void Start()
-    {
-        
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
