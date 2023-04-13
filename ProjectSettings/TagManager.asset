@@ -8,6 +8,8 @@ TagManager:
   - Interactor
   - mop
   - TractorTrigger
+  - Poddon
+  - Kleshny
   layers:
   - Default
   - TransparentFX

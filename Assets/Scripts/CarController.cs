@@ -60,6 +60,9 @@ public class CarController : MonoBehaviour
             case inputEnum.vr:
                 horizontalInput = -ConvertToDiapason(steering.outputAngle, -90, 90, -1, 1);
                 verticalInput = ConvertToDiapason(drive.outputAngle, -90, 90, -1, 1);
+                
+                isBreaking = verticalInput == 0;
+
                 break;
         }
 

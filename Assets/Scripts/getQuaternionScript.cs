@@ -7,6 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class getQuaternionScript : MonoBehaviour
 {
     // public Quaternion output;
+    public bool isReturns = true;
     public float outputAngle;
     // public Transform doll;
 
@@ -23,10 +24,9 @@ public class getQuaternionScript : MonoBehaviour
     {
         if (_grab.isSelected)
         {
-            print("Hovered");
             outputAngle = _joint.angle;
         }
-        else if (outputAngle != 0)
+        else if (outputAngle != 0 && isReturns)
         {
             outputAngle = 0;
         }

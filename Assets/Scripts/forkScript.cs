@@ -12,11 +12,9 @@ public class forkScript : MonoBehaviour
 
     private void Update()
     {
-        var newHeight = ConvertToDiapason(upDownLever.outputAngle, -90, 90, minMaxForkHeight[0], minMaxForkHeight[1]);
+        var newHeight = ConvertToDiapason(upDownLever.outputAngle, 0, 90, minMaxForkHeight[0], minMaxForkHeight[1]);
         var newWeight = ConvertToDiapason(leftRightLever.outputAngle, -90, 90, minMaxForkWeight[0], minMaxForkWeight[1]);
         
-        print(newHeight + " | " + newWeight);
-
         smallHandler.transform.localPosition = new Vector3(0, newHeight, 0);
         bigHandler.transform.localPosition = new Vector3(0, 0, newWeight);
     }
