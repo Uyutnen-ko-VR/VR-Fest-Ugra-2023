@@ -53,7 +53,7 @@ public class Poddon : MonoBehaviour
     public void ChangeMass(float newMass)
     {
         _mass += newMass;
-        massText.SetText($"{_mass} кг");
+        massText.SetText($"{Mathf.Round(_mass)} кг");
     }
 
 

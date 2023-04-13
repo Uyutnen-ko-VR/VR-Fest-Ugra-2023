@@ -7,6 +7,7 @@ public class GruzManager : MonoBehaviour
 {
     public float allKilos, completedKilos;
     public TextMeshProUGUI remainKilosText, completedKilosText;
+    public GameObject winPanel;
     
     void Start()
     {
@@ -20,7 +21,19 @@ public class GruzManager : MonoBehaviour
 
         if (allKilos == completedKilos)
         {
-            print("Yra");
+            Win();
         }
+    }
+
+    private void Win()
+    {
+        GetComponent<AudioSource>().Play();
+        
+        Invoke(nameof(ShowWinPanel), 3f);
+    }
+
+    private void ShowWinPanel()
+    {
+        winPanel.SetActive(true);
     }
 }
