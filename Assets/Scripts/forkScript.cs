@@ -8,12 +8,14 @@ public class forkScript : MonoBehaviour
     public getQuaternionScript upDownLever, leftRightLever;
     public Vector2 minMaxForkHeight, minMaxForkWeight;
 
-    public GameObject smallHandler, bigHandler;
+    public GameObject smallHandler, bigHandler, slomana;
+
+    public float maxMass;
 
     private void Update()
     {
-        var newHeight = ConvertToDiapason(upDownLever.outputAngle, 0, 90, minMaxForkHeight[0], minMaxForkHeight[1]);
-        var newWeight = ConvertToDiapason(leftRightLever.outputAngle, -90, 90, minMaxForkWeight[0], minMaxForkWeight[1]);
+        var newHeight = ConvertToDiapason(upDownLever.outputAngle, 0, 45, minMaxForkHeight[0], minMaxForkHeight[1]);
+        var newWeight = ConvertToDiapason(leftRightLever.outputAngle, -45, 45, minMaxForkWeight[0], minMaxForkWeight[1]);
         
         smallHandler.transform.localPosition = new Vector3(0, newHeight, 0);
         bigHandler.transform.localPosition = new Vector3(0, 0, newWeight);
@@ -26,6 +28,13 @@ public class forkScript : MonoBehaviour
         float converted = ((old - oldMin) * newRange / oldRange) + newMin;
 
         return converted;
+    }
+
+    public void Brake()
+    {
+        print("brake");
+        slomana.SetActive(true);
+        Destroy(smallHandler);
     }
 
 }

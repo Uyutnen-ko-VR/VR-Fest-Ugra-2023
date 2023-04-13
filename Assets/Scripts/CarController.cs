@@ -58,8 +58,8 @@ public class CarController : MonoBehaviour
                 isBreaking = Input.GetKey(KeyCode.Space);
                 break;
             case inputEnum.vr:
-                horizontalInput = -ConvertToDiapason(steering.outputAngle, -90, 90, -1, 1);
-                verticalInput = ConvertToDiapason(drive.outputAngle, -90, 90, -1, 1);
+                horizontalInput = -ConvertToDiapason(steering.outputAngle, -45, 45, -1, 1);
+                verticalInput = ConvertToDiapason(drive.outputAngle, -45, 45, -1, 1);
                 
                 isBreaking = verticalInput == 0;
 
