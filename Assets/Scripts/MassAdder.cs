@@ -7,7 +7,7 @@ public class MassAdder : MonoBehaviour
 {
     private Poddon _poddon;
 
-    private void Awake()
+    private void Start()
     {
         _poddon = transform.parent.GetComponent<Poddon>();
     }
@@ -17,13 +17,13 @@ public class MassAdder : MonoBehaviour
         if (!other.GetComponent<Rigidbody>()) return;
 
         // print("OK");
-        _poddon.mass += other.GetComponent<Rigidbody>().mass;
+        _poddon.ChangeMass(other.GetComponent<Rigidbody>().mass);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!other.GetComponent<Rigidbody>()) return;
 
-        _poddon.mass -= other.GetComponent<Rigidbody>().mass;
+        _poddon.ChangeMass(-other.GetComponent<Rigidbody>().mass);
     }
 }

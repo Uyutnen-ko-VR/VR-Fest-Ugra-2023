@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarController : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearRightWheelTransform;
 
     public getQuaternionScript steering, drive;
+
+    private Rigidbody _rb => GetComponent<Rigidbody>();
+    public GameObject particles, deathScreen;
     
     public enum inputEnum
     {
@@ -119,5 +123,28 @@ public class CarController : MonoBehaviour
 ;       wheelCollider.GetWorldPose(out pos, out rot);
         wheelTransform.rotation = rot;
         wheelTransform.position = pos;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        print(_rb.velocity.magnitude);
+        if (_rb.velocity.magnitude > 0.5)
+        {
+            particles.SetActive(true);
+            Invoke(nameof(ShowDeathScreen), 10f);
+            Invoke(nameof(ReloadScene), 15f);
+
+            print("Destruct");
+        }
+    }
+
+    private void ShowDeathScreen()
+    {
+        deathScreen.SetActive(true);
+    }
+
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Poddon : MonoBehaviour
 {
-    public float mass;
-    private bool _isChecked;
+    public TextMeshProUGUI massText, maxMassText;
     
+    private float _mass;
+    private bool _isChecked;
+
+    private void Awake()
+    {
+        maxMassText.SetText($"{FindObjectOfType<forkScript>().maxMass} кг");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         switch (other.tag)
@@ -15,7 +23,7 @@ public class Poddon : MonoBehaviour
             case "Finish":
                 var man = FindObjectOfType<GruzManager>();
 
-                man.completedKilos += mass;
+                man.completedKilos += _mass;
                 man.UpdateTexts();
                 
                 print("Finish");
@@ -27,17 +35,25 @@ public class Poddon : MonoBehaviour
             case "Kleshny":
                 if (_isChecked) return;
 
+                massText.transform.parent.gameObject.SetActive(false);
+                
                 _isChecked = true;
                 
                 if (other.transform.parent.parent.parent.GetComponent<forkScript>())
                 {
-                    if (other.transform.parent.parent.parent.GetComponent<forkScript>().maxMass < mass)
+                    if (other.transform.parent.parent.parent.GetComponent<forkScript>().maxMass < _mass)
                     {
                         other.transform.parent.parent.parent.GetComponent<forkScript>().Brake();
                     }
                 }
                 break;
         }
+    }
+
+    public void ChangeMass(float newMass)
+    {
+        _mass += newMass;
+        massText.SetText($"{_mass} кг");
     }
 
 
