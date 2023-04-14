@@ -13,7 +13,7 @@ public class Poddon : MonoBehaviour
 
     private void Awake()
     {
-        maxMassText.SetText($"{FindObjectOfType<forkScript>().maxMass} кг");
+        maxMassText.SetText($"{FindObjectOfType<forkScript>().maxMass * 10} кг");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,7 +23,7 @@ public class Poddon : MonoBehaviour
             case "Finish":
                 var man = FindObjectOfType<GruzManager>();
 
-                man.completedKilos += _mass;
+                man.completedKilos += _mass * 10;
                 man.UpdateTexts();
                 
                 print("Finish");
@@ -53,7 +53,7 @@ public class Poddon : MonoBehaviour
     public void ChangeMass(float newMass)
     {
         _mass += newMass;
-        massText.SetText($"{Mathf.Round(_mass)} кг");
+        massText.SetText($"{Mathf.Round(_mass) * 10} кг");
     }
 
 

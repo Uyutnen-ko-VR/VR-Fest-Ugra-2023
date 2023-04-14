@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GruzManager : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GruzManager : MonoBehaviour
         remainKilosText.SetText($"{allKilos - completedKilos} кг");
         completedKilosText.SetText($"{completedKilos} кг");
 
-        if (allKilos == completedKilos)
+        if (allKilos <= completedKilos)
         {
             Win();
         }
@@ -34,6 +35,6 @@ public class GruzManager : MonoBehaviour
 
     private void ShowWinPanel()
     {
-        winPanel.SetActive(true);
+        SceneManager.LoadScene("WinScene");
     }
 }

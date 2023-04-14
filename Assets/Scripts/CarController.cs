@@ -31,7 +31,7 @@ public class CarController : MonoBehaviour
 
     public getQuaternionScript steering, drive;
 
-    private Rigidbody _rb => GetComponent<Rigidbody>();
+    private Rigidbody _rb;
     public GameObject particles, deathScreen;
     
     public enum inputEnum
@@ -42,9 +42,15 @@ public class CarController : MonoBehaviour
 
     public inputEnum input;
 
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
 
     private void FixedUpdate()
     {
+        
         GetInput();
         HandleMotor();
         HandleSteering();
@@ -127,8 +133,7 @@ public class CarController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        print(_rb.velocity.magnitude);
-        if (_rb.velocity.magnitude > 0.5)
+        if (_rb.velocity.magnitude > 4)
         {
             particles.SetActive(true);
             Invoke(nameof(ShowDeathScreen), 10f);
@@ -140,7 +145,7 @@ public class CarController : MonoBehaviour
 
     private void ShowDeathScreen()
     {
-        deathScreen.SetActive(true);
+        SceneManager.LoadScene("DieScene");
     }
 
     private void ReloadScene()

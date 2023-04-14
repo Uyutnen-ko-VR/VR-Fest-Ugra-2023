@@ -54,15 +54,18 @@
         private bool justGrabbed = false;
         private HingeJoint _joint;
         private XRGrabInteractable _grab;
+
+        private Quaternion startRot;
     
         private void Start()
         {
             _joint = GetComponent<HingeJoint>();
             _grab = GetComponent<XRGrabInteractable>();
+            startRot = transform.localRotation;
     
             if (!isReturns)
             {
-                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             }
         }
     
@@ -76,7 +79,8 @@
                 {
                     if (!isReturns)
                     {
-                        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                        // transform.localRotation = startRot;
+                        // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                     }
                     justGrabbed = true;
                 }
@@ -86,8 +90,8 @@
             {
                 if (!isReturns)
                 {
-                    // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-                    GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                    // transform.localRotation = startRot;
+                    // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
                 }
     
@@ -98,7 +102,9 @@
                 
                 justGrabbed = false;
             }
-                
+            else
+                transform.localRotation = startRot;
+            
         }
     }
 

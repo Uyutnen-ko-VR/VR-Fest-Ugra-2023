@@ -4,7 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/FreeTokTest.unity
+    guid: 603be024b6edc874594274f4a3a495ba
+  - enabled: 1
+    path: Assets/Scenes/DieScene.unity
+    guid: 9ddfde22a404957448e2b843cd64e315
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 3b0560c6d8580914c8499260a826a76a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: f84085f4ab7ef3f48b3620bd9d2a1f7f,
       type: 2}
