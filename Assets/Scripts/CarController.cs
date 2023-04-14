@@ -143,12 +143,12 @@ public class CarController : MonoBehaviour
         }
     }
 
-    private void ShowDeathScreen()
+    public void ShowDeathScreen()
     {
         SceneManager.LoadScene("DieScene");
     }
 
-    private void ReloadScene()
+    public void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

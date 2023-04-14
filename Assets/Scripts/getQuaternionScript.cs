@@ -90,7 +90,7 @@
             {
                 if (!isReturns)
                 {
-                    // transform.localRotation = startRot;
+                    startRot = transform.localRotation;
                     // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
                 }

@@ -35,6 +35,13 @@ public class forkScript : MonoBehaviour
         print("brake");
         slomana.SetActive(true);
         Destroy(smallHandler);
+        
+        Invoke(nameof(Die), 10f);
+    }
+
+    private void Die()
+    {
+        FindObjectOfType<CarController>().ShowDeathScreen();
     }
 
 }
